@@ -25,7 +25,7 @@ fun getUser(): User {
         age = 25,
         city = "Araxá",
         email = "rylder@gmail.com",
-        photos = mutableListOf(),
+        photos = generatePhotos(),
         curiosities = mutableListOf(
             Curiosity(
                 title = "Curiosidade 1",
@@ -51,7 +51,7 @@ fun getUser(): User {
     )
 }
 
-fun generatePhotos() {
+fun generatePhotos(): MutableList<Photo> {
     val urlList = listOf(
         "https://i.pinimg.com/236x/8b/ee/9a/8bee9a0f5485ac940546c6009bfb679e.jpg",
         "https://i.pinimg.com/236x/fe/96/88/fe968866d54d5ca867a613c2ddb2b3a4--soccer-memes-funny-photoshop.jpg",
@@ -59,4 +59,14 @@ fun generatePhotos() {
         "https://pbs.twimg.com/media/Epy6Tq0XEAE9Q-X.jpg",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt-TrMyumPcB56kArfbfJ7Zy-sokjqB8rF9Hnpir3fTDvDeKLgqIgM69f1obJJw_EQXew&usqp=CAU",
     )
+    val photos = mutableListOf<Photo>()
+    for (i in 1..100) {
+        photos.add(
+            Photo(
+                image = urlList[i % urlList.size],
+                description = "Image $i"
+            )
+        )
+    }
+    return photos
 }

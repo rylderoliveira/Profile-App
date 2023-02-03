@@ -4,38 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.impacta.firstappkotlin.R
-import com.impacta.firstappkotlin.ui.profile.getUser
+import androidx.recyclerview.widget.GridLayoutManager
+import com.impacta.firstappkotlin.databinding.FragmentPhotosBinding
 
 class PhotosFragment : Fragment() {
 
-    private lateinit var imageViewPhoto: ImageView
-    private lateinit var textViewPhoto: TextView
+    private lateinit var binding: FragmentPhotosBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_photos, container, false)
+        binding = FragmentPhotosBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews(view)
-        listPhotos()
+        initRecyclerView()
     }
 
-    private fun initViews(view: View) {
-        imageViewPhoto = view.findViewById(R.id.image_view_photos_photo)
-        textViewPhoto = view.findViewById(R.id.text_view_photos_description)
-    }
-
-    private fun listPhotos() {
-        val user = getUser()
-        textViewPhoto.text = user.photos[0].description
+    private fun initRecyclerView() {
+        binding.recyclerViewPhotos.layoutManager =
+            GridLayoutManager(this.context, 3, GridLayoutManager.VERTICAL, false)
+        binding.recyclerViewPhotos.adapter = PhotoAdapter()
     }
 }
