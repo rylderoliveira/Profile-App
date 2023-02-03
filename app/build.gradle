@@ -51,4 +51,16 @@ dependencies {
 
     //Hawk
     implementation "com.orhanobut:hawk:2.0.1"
+
+//    TODO (1) Implemente a biblioteca Retrofit conforme a documentação
+//    TODO (2) Implemente a biblioteca Gson e Gson Converter conforme a documentação
+//    TODO (3) Faça a login no site da The Cat API e de uma breve lida na documentação
+//    TODO (4) Adicione um Object chamado Retrofit ao package core
+//    TODO (5) Faça a configuração do Objeto conforme a documentação
+//    TODO (6) Crie uma interface de serviço para fazer as chamadas API
+//    TODO (7) Crie um Model para salvar a resposta da API
+//    TODO (8) Implemente a chamada da API quando clicarmos no botão de listagem de gatos
+//    TODO (9) Crie um card para mostrar o ID e a IMAGEM adquiridas
+//    TODO (10) Adicione uma Recycler View para listar essa lista de gatos
+
 }
