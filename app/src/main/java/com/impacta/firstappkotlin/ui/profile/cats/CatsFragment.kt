@@ -1,6 +1,7 @@
 package com.impacta.firstappkotlin.ui.profile.cats
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +36,7 @@ class CatsFragment : Fragment() {
         val retrofit = RetrofitCat.instance.create(CatService::class.java)
         val a = retrofit.getRandomCats().enqueue(object : Callback<List<Cat>>{
             override fun onResponse(call: Call<List<Cat>>, response: Response<List<Cat>>) {
+                Log.i("Rylder", "${response.body()}")
                 showCats(response.body())
             }
 
@@ -56,5 +58,6 @@ class CatsFragment : Fragment() {
 
     private fun showCats(cats: List<Cat>?) {
         adapter.items = cats ?: listOf()
+        adapter.notifyDataSetChanged()
     }
 }
