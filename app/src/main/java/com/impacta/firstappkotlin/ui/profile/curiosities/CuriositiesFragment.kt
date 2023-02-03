@@ -11,9 +11,8 @@ import com.impacta.firstappkotlin.R
 
 class CuriositiesFragment : Fragment() {
 
-    private val recyclerView: RecyclerView? by lazy {
-        view?.findViewById(R.id.recycler_view_curiosity)
-    }
+    private lateinit var recyclerView: RecyclerView
+    private val adapter = CuriosityAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,12 +24,17 @@ class CuriositiesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews(view)
         initRecyclerView()
     }
 
+    private fun initViews(view: View) {
+        recyclerView = view.findViewById(R.id.recycler_view_curiosity)
+    }
+
     private fun initRecyclerView() {
-        recyclerView?.layoutManager =
+        recyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
-        recyclerView?.adapter = CuriosityAdapter()
+        recyclerView.adapter = adapter
     }
 }

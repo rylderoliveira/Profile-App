@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_menu_photo"
+        android:icon="@drawable/ic_photo_library"
+        android:title="@string/photos"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/item_menu_curiosity"
+        android:icon="@drawable/ic_question_mark"
+        android:title="@string/curiosity"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/item_menu_cats"
+        android:icon="@drawable/ic_photo_library"
+        android:title="@string/cats"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/item_menu_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout"
+        android:enabled="true"/>
+</menu>
