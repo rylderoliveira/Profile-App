@@ -8,7 +8,7 @@ import com.impacta.firstappkotlin.ui.profile.getUser
 
 class PhotoAdapter : RecyclerView.Adapter<PhotoViewHolder>() {
 
-    private val photos = getUser().photos
+    val photos = getUser().photos
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_photo, parent, false)
