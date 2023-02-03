@@ -55,7 +55,7 @@ class ProfileActivity : AppCompatActivity() {
                 R.id.item_menu_photo -> inflateFragment(photosFragment)
                 R.id.item_menu_curiosity -> inflateFragment(curiositiesFragment)
                 R.id.item_menu_cats -> inflateFragment(catsFragment)
-                R.id.item_menu_logout -> inflateFragment(curiositiesFragment)
+                R.id.item_menu_logout -> logout()
                 else -> false
             }
         }
@@ -69,10 +69,11 @@ class ProfileActivity : AppCompatActivity() {
         return true
     }
 
-    private fun logout() {
+    private fun logout() : Boolean {
         isSigned = false
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+        return true
     }
 }
