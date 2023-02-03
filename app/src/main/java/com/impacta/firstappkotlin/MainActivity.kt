@@ -44,8 +44,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToProfile() {
+        isSigned = true
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun validatePasswordUpperCase() : Boolean {

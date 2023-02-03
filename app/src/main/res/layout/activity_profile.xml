@@ -77,6 +77,24 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_profile_logout"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@id/card_view_profile_curiosities"
+        app:layout_constraintTop_toBottomOf="@id/card_view_profile_infos">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_logout_24"
+            app:tint="@color/light_sky_blue" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/card_view_profile_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
