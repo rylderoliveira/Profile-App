@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile.ProfileActivity">
+    tools:context=".ui.profile.ProfileActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_profile_infos"
@@ -109,7 +109,7 @@
             android:id="@+id/fragment_container_view_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:name="com.impacta.firstappkotlin.profile.photos.PhotosFragment"
+            tools:name="com.impacta.firstappkotlin.ui.profile.photos.PhotosFragment"
             tools:layout="@layout/fragment_photos"/>
 
     </androidx.cardview.widget.CardView>

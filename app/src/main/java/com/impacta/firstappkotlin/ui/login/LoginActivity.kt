@@ -1,4 +1,4 @@
-package com.impacta.firstappkotlin
+package com.impacta.firstappkotlin.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.impacta.firstappkotlin.profile.ProfileActivity
+import com.impacta.firstappkotlin.R
+import com.impacta.firstappkotlin.isSigned
+import com.impacta.firstappkotlin.ui.profile.ProfileActivity
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private val textViewTitle: TextView by lazy {
         findViewById(R.id.text_view_main_title)
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         buttonLogin.setOnClickListener {
             validateInfo()
         }

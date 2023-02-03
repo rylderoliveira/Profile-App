@@ -1,10 +1,13 @@
-package com.impacta.firstappkotlin
+package com.impacta.firstappkotlin.ui.splashscreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.impacta.firstappkotlin.profile.ProfileActivity
+import com.impacta.firstappkotlin.R
+import com.impacta.firstappkotlin.isSigned
+import com.impacta.firstappkotlin.ui.login.LoginActivity
+import com.impacta.firstappkotlin.ui.profile.ProfileActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                val intent: Intent = Intent(this, MainActivity::class.java)
+                val intent: Intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }

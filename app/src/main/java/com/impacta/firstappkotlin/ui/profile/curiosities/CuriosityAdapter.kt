@@ -1,10 +1,10 @@
-package com.impacta.firstappkotlin.profile.curiosities
+package com.impacta.firstappkotlin.ui.profile.curiosities
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.impacta.firstappkotlin.R
-import com.impacta.firstappkotlin.profile.getUser
+import com.impacta.firstappkotlin.ui.profile.getUser
 
 class CuriosityAdapter : RecyclerView.Adapter<CuriosityViewHolder>() {
 

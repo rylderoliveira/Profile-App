@@ -1,10 +1,10 @@
-package com.impacta.firstappkotlin.profile.curiosities
+package com.impacta.firstappkotlin.ui.profile.curiosities
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.impacta.firstappkotlin.R
-import com.impacta.firstappkotlin.profile.Curiosity
+import com.impacta.firstappkotlin.ui.profile.Curiosity
 
 class CuriosityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

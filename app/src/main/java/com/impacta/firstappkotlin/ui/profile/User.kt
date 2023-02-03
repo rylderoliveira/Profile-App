@@ -1,6 +1,4 @@
-package com.impacta.firstappkotlin.profile
-
-import com.impacta.firstappkotlin.R
+package com.impacta.firstappkotlin.ui.profile
 
 data class User(
     val name: String,
