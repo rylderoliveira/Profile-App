@@ -1,5 +1,6 @@
 package com.impacta.firstappkotlin.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.impacta.firstappkotlin.R
+import com.impacta.firstappkotlin.isSigned
+import com.impacta.firstappkotlin.ui.login.LoginActivity
+import com.impacta.firstappkotlin.ui.profile.cats.CatsFragment
 import com.impacta.firstappkotlin.ui.profile.curiosities.CuriositiesFragment
 import com.impacta.firstappkotlin.ui.profile.photos.PhotosFragment
 
@@ -29,6 +33,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private val photosFragment: Fragment = PhotosFragment()
     private val curiositiesFragment: Fragment = CuriositiesFragment()
+    private val catsFragment: Fragment = CatsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +54,8 @@ class ProfileActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.item_menu_photo -> inflateFragment(photosFragment)
                 R.id.item_menu_curiosity -> inflateFragment(curiositiesFragment)
+                R.id.item_menu_cats -> inflateFragment(catsFragment)
+                R.id.item_menu_logout -> inflateFragment(curiositiesFragment)
                 else -> false
             }
         }
@@ -60,5 +67,12 @@ class ProfileActivity : AppCompatActivity() {
             commit()
         }
         return true
+    }
+
+    private fun logout() {
+        isSigned = false
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
