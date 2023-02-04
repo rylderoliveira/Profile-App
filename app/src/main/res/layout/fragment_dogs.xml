@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.dogs.DogsFragment">
+
+    <EditText
+        android:id="@+id/edit_text_dogs_race"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_4x"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/race"/>
+
+    <EditText
+        android:id="@+id/edit_text_dogs_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_4x"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_dogs_race"
+        android:hint="@string/quantity"/>
+
+    <Button
+        android:id="@+id/button_dogs_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_4x"
+        android:text="@string/search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_dogs_quantity" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/button_dogs_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/spacing_4x"
+        android:id="@+id/recycler_view_dogs"
+        tools:listitem="@layout/item_cat"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:spanCount="2"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

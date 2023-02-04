@@ -13,6 +13,7 @@ import com.impacta.firstappkotlin.isSigned
 import com.impacta.firstappkotlin.ui.login.LoginActivity
 import com.impacta.firstappkotlin.ui.profile.cats.CatsFragment
 import com.impacta.firstappkotlin.ui.profile.curiosities.CuriositiesFragment
+import com.impacta.firstappkotlin.ui.profile.dogs.DogsFragment
 import com.impacta.firstappkotlin.ui.profile.photos.PhotosFragment
 
 class ProfileActivity : AppCompatActivity() {
@@ -34,6 +35,7 @@ class ProfileActivity : AppCompatActivity() {
     private val photosFragment: Fragment = PhotosFragment()
     private val curiositiesFragment: Fragment = CuriositiesFragment()
     private val catsFragment: Fragment = CatsFragment()
+    private val dogsFragment: Fragment = DogsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +57,7 @@ class ProfileActivity : AppCompatActivity() {
                 R.id.item_menu_photo -> inflateFragment(photosFragment)
                 R.id.item_menu_curiosity -> inflateFragment(curiositiesFragment)
                 R.id.item_menu_cats -> inflateFragment(catsFragment)
+                R.id.item_menu_dogs -> inflateFragment(dogsFragment)
                 R.id.item_menu_logout -> logout()
                 else -> false
             }

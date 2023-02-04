@@ -16,8 +16,14 @@
         android:title="@string/cats"
         android:enabled="true"/>
     <item
+        android:id="@+id/item_menu_dogs"
+        android:icon="@drawable/ic_pet"
+        android:title="@string/dogs"
+        android:enabled="true"/>
+    <item
         android:id="@+id/item_menu_logout"
         android:icon="@drawable/ic_logout"
         android:title="@string/logout"
         android:enabled="true"/>
+
 </menu>
