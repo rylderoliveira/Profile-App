@@ -1,21 +1,19 @@
 package com.impacta.firstappkotlin.ui.profile.cats
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.impacta.firstappkotlin.R
 import com.impacta.firstappkotlin.core.CatService
 import com.impacta.firstappkotlin.core.RetrofitCat
 import com.impacta.firstappkotlin.databinding.FragmentCatsBinding
 import com.impacta.firstappkotlin.model.Cat
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CatsFragment : Fragment() {
 
@@ -33,17 +31,17 @@ class CatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-        val retrofit = RetrofitCat.instance.create(CatService::class.java)
-        val a = retrofit.getRandomCats().enqueue(object : Callback<List<Cat>>{
-            override fun onResponse(call: Call<List<Cat>>, response: Response<List<Cat>>) {
-                Log.i("Rylder", "${response.body()}")
-                showCats(response.body())
+        GlobalScope.launch(Dispatchers.Main) {
+           runCatching {
+                val retrofit = RetrofitCat.instance.create(CatService::class.java)
+                val response = retrofit.getRandomCats()
+                if (response.isSuccessful) {
+                    showCats(response.body())
+                } else {
+                    showError()
+                }
             }
-
-            override fun onFailure(call: Call<List<Cat>>, t: Throwable) {
-                showError()
-            }
-        })
+        }
     }
 
     private fun initRecyclerView() {
@@ -58,6 +56,6 @@ class CatsFragment : Fragment() {
 
     private fun showCats(cats: List<Cat>?) {
         adapter.items = cats ?: listOf()
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeInserted(0, cats?.size ?: 0)
     }
 }
